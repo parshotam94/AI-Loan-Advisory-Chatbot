@@ -49,8 +49,6 @@ venv.bak/
 chroma/
 faiss_index/
 vector_store/
-data/
-logs/
 
 # ==============================================================================
 # Environment Variables & Private Credentials
