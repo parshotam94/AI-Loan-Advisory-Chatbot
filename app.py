@@ -17,6 +17,16 @@ from utils import (
 from agent import LoanAgent
 
 # Initialize Flask App
+import os
+
+# Define the data directories your app relies on
+REQUIRED_DIRS = ["data", "data/chroma_db", "logs", "uploads"]
+
+for directory in REQUIRED_DIRS:
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print(f"📦 Created missing production directory: {directory}")
+
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "data/uploads"
 app.config["PDF_FOLDER"] = "data/pdfs"
