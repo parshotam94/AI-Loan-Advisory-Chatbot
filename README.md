@@ -1,4 +1,3 @@
-```markdown
 # 💼 AI Loan Advisory Agent & Dashboard
 
 A production-grade, dual-portal web application designed for automated financial customer service and credit operations. The system serves two primary stakeholder personas: general users seeking loan intelligence through an intelligent chat agent, and administrators managing the underlying knowledge base, document corpus, and operational performance metrics.
@@ -16,8 +15,6 @@ The project acts as an intelligent frontend orchestration layer built with **Str
 
 ## 🛠️ System Architecture & How It Works
 
-
-```
 
 ```
                  +---------------------------------------+
@@ -135,7 +132,6 @@ For development and local evaluation, use the following administrator credential
 
 ```
 
-```
 ## 📈 System Overview Report: AI Loan Advisory Agent & Dashboard
 
 This project implements a production-grade, dual-portal web application designed for automated financial customer service and credit operations. The system serves two primary stakeholder personas: general users seeking loan intelligence and administrators managing the underlying knowledge base and operational metrics.
@@ -171,7 +167,6 @@ A restricted workspace for system configurations, vector database maintenance, a
 * **Document Corpus Management (RAG Pipeline Control):** Allows administrators to upload raw policy PDFs directly into the system, call deep database vector rebuilds, or selectively delete active documents to purge their associated vectors from the backend index.
 * **Dense FAQ Registry Manager:** Allows line-of-business operators to inject or remove hardcoded Question/Answer pairings, triggering immediate vector embedding generation for the backend semantic match registry.
 
----
 
 ## 🔄 Technical Workflow: How It Works
 
@@ -200,4 +195,3 @@ The Flask API receives the payload and evaluates it against an orchestration pip
 ### Step 3: Frontend Render and Analytics Re-evaluation
 
 The Streamlit application consumes the JSON payload response, instantly rendering the answer into the chat message bubble along with its individual metadata metrics. Concurrently, if an administrator is logged into the **Admin Dashboard**, refreshing or navigating tabs prompts a `GET` request to `/api/analytics`. The system updates Pandas dataframes instantly, refreshing the data visualization suites and data tables to match real-time system performance.
-```
