@@ -1,0 +1,71 @@
+# ==============================================================================
+# Python Artifacts
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==============================================================================
+# Virtual Environments (Highly Recommended)
+# ==============================================================================
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ==============================================================================
+# Streamlit & Frontend Specifics
+# ==============================================================================
+.streamlit/config.toml
+.streamlit/secrets.toml
+!default/config.toml
+
+# ==============================================================================
+# Project-Specific Data & Vector DBs (Crucial to prevent committing large indices)
+# ==============================================================================
+
+# Ignore vector database storage (e.g., ChromaDB, FAISS, SQLite, etc.)
+*.db
+*.sqlite
+chroma/
+faiss_index/
+vector_store/
+data/
+logs/
+
+# ==============================================================================
+# Environment Variables & Private Credentials
+# ==============================================================================
+.env
+.env.local
+.env.*
+secrets.json
+
+# ==============================================================================
+# Operating System & IDE Files
+# ==============================================================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace

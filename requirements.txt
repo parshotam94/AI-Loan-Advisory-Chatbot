@@ -1,0 +1,12 @@
+flask
+streamlit
+groq
+chromadb
+sentence-transformers
+pymupdf
+pandas
+plotly
+python-dotenv
+requests
+torch
+numpy
