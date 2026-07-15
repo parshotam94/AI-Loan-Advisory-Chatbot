@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime
+import os
 
 # Page Configuration
 st.set_page_config(
@@ -14,7 +15,12 @@ st.set_page_config(
 )
 
 # Backend REST API configuration
-API_URL = "http://localhost:5000/api"
+# Render sets the PORT environment variable automatically for the web service
+if "PORT" in os.environ:
+    # Streamlit will communicate internally with the Flask backend running on port 5000
+    API_URL = "http://127.0.0.1:5000/api"
+else:
+    API_URL = "http://localhost:5000/api"
 
 
 # Initialize session state for admin access
