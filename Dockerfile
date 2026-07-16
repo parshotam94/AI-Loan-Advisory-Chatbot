@@ -18,4 +18,4 @@ EXPOSE 8080
 
 # Step 7: Define the command to run your app
 # Ensure your app binds to 0.0.0.0 so Render can route external traffic to it
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"] 
