@@ -15,7 +15,7 @@ sleep 10
 
 echo "Starting Streamlit"
 
-streamlit run dashboard.py \
+streamlit run streamlit_app.py \
 --server.address 0.0.0.0 \
 --server.port $PORT \
 --server.headless true \
