@@ -16,8 +16,9 @@ st.set_page_config(
 
 # Backend REST API configuration
 # Render sets the PORT environment variable automatically for the web service
-if "PORT" in os.environ:
-    # Streamlit will communicate internally with the Flask backend running on port 5000
+import os
+
+if "RENDER" in os.environ:
     API_URL = "http://127.0.0.1:5000/api"
 else:
     API_URL = "http://localhost:5000/api"

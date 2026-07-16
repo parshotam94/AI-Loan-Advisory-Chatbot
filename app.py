@@ -31,6 +31,13 @@ chroma_manager = ChromaDBManager()
 for folder in [app.config["UPLOAD_FOLDER"], app.config["PDF_FOLDER"]]:
     os.makedirs(folder, exist_ok=True)
 
+#health check for render
+@app.route("/api/health")
+def health():
+    return {
+        "status": "Flask running"
+    }
+
 # ----------------------------------------------------------------------
 # 1. CORE AI CHAT CONVERSATION ENDPOINT
 # ----------------------------------------------------------------------
