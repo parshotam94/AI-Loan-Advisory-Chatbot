@@ -1,6 +1,3 @@
-Here is the completely clean, consolidated, and properly formatted `README.md` file.
-
-I removed all the broken code fence tags (`````), fixed the formatting errors in your ASCII architecture diagrams, organized the hybrid FAQ engine logic cleanly, and merged your technical analysis report directly into the file as a comprehensive system overview.
 
 ```markdown
 # 💼 AI Loan Advisory Agent & Dashboard
@@ -108,7 +105,7 @@ cd <repository-directory>
 
 2. **Install Dependencies:**
 ```bash
-pip install streamlit requests pandas plotly
+pip install -r requirements.txt
 
 ```
 
@@ -143,6 +140,7 @@ For development and local evaluation, use the following administrator credential
 
 ## Live Link Render
 `https://ai-loan-advisory-chatbot.onrender.com/`
+(may not work as it is taking a lot of RAM and in free tier of Render it allow only 512 MB)
 
 ```
 
