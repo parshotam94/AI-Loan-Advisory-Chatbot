@@ -8,8 +8,8 @@ import chromadb
 from chromadb.config import Settings
 
 # Force all Hugging Face hub interactions to prioritize local disk cache
-os.environ["HF_HUB_OFFLINE"] = "1"
-os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["HF_HUB_OFFLINE"] = "0"  #if offline mode then set 1 both
+os.environ["TRANSFORMERS_OFFLINE"] = "0"
 
 # Safe standalone import after environment virtualization flags are set
 from sentence_transformers import SentenceTransformer
