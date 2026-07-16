@@ -1,6 +1,5 @@
 import sqlite3
 import numpy as np
-import pickle
 from typing import List, Tuple
 from utils import get_db_connection, VectorModel, logger
 
@@ -32,8 +31,19 @@ SEED_FAQS: List[Tuple[str, str]] = [
     )
 ]
 
+def init_faq_table(cursor: sqlite3.Cursor):
+    """Ensures the FAQ table exists with proper types before indexing."""
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS faq (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            question TEXT UNIQUE NOT NULL,
+            answer TEXT NOT NULL,
+            embedding BLOB NOT NULL
+        )
+    """)
+
 def train_and_index_faqs():
-    """Generates embeddings for seed FAQs and populates the SQLite database."""
+    """Generates embeddings for seed FAQs and populates the SQLite database safely."""
     logger.info("Starting FAQ indexing process...")
     
     # Load embedding model
@@ -46,6 +56,9 @@ def train_and_index_faqs():
     conn = get_db_connection()
     cursor = conn.cursor()
 
+    # Ensure schema matches our expectations
+    init_faq_table(cursor)
+
     success_count = 0
     duplicate_count = 0
 
@@ -54,21 +67,22 @@ def train_and_index_faqs():
         
         # 1. Generate high-quality dense embedding vector
         try:
-            embedding_vector = model.encode(question, convert_to_numpy=True)
-            # Serialize the NumPy array to binary blob for SQLite storage
-            embedding_blob = pickle.dumps(embedding_vector)
+            embedding_vector = model.encode(question, convert_to_numpy=True).astype(np.float32)
+            
+            # Secure, highly optimized binary serialization instead of pickle
+            embedding_blob = embedding_vector.tobytes()
         except Exception as e:
             logger.error(f"Failed to generate embedding for FAQ '{question}': {str(e)}")
             continue
 
-        # 2. Insert into SQLite FAQ storage
+        # 2. Insert or update into SQLite FAQ storage securely
         try:
             cursor.execute(
                 """
                 INSERT INTO faq (question, answer, embedding)
                 VALUES (?, ?, ?)
                 """,
-                (question, answer, embedding_blob)
+                (question, answer, sqlite3.Binary(embedding_blob))
             )
             success_count += 1
         except sqlite3.IntegrityError:
@@ -79,7 +93,7 @@ def train_and_index_faqs():
                 SET answer = ?, embedding = ?
                 WHERE question = ?
                 """,
-                (answer, embedding_blob, question)
+                (answer, sqlite3.Binary(embedding_blob), question)
             )
             duplicate_count += 1
 

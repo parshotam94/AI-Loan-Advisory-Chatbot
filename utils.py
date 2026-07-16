@@ -4,11 +4,17 @@ import logging
 from datetime import datetime
 from typing import List, Dict, Any, Tuple
 import fitz  # PyMuPDF
-import sentence_transformers
 import chromadb
 from chromadb.config import Settings
 
-# Ensure system directories exist
+# Force all Hugging Face hub interactions to prioritize local disk cache
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+
+# Safe standalone import after environment virtualization flags are set
+from sentence_transformers import SentenceTransformer
+
+# Ensure structural system system directories exist locally
 for folder in ["data/pdfs", "data/chroma_db", "data/uploads", "logs"]:
     os.makedirs(folder, exist_ok=True)
 
@@ -94,10 +100,11 @@ class VectorModel:
     _model = None
 
     @classmethod
-    def get_model(cls) -> sentence_transformers.SentenceTransformer:
+    def get_model(cls) -> SentenceTransformer:
         if cls._model is None:
             logger.info(f"Loading local SentenceTransformer model: {EMBEDDING_MODEL_NAME}...")
-            cls._model = sentence_transformers.SentenceTransformer(EMBEDDING_MODEL_NAME)
+            # Fixed NameError by calling the directly imported class name
+            cls._model = SentenceTransformer(EMBEDDING_MODEL_NAME)
             logger.info("SentenceTransformer model loaded successfully.")
         return cls._model
 
@@ -184,6 +191,7 @@ class RecursiveTextSplitter:
         
         while start < text_len:
             end = min(start + self.chunk_size, text_len)
+            
             # Try to break at a space, punctuation, or newline rather than cutting words in half
             if end < text_len:
                 last_space = text.rfind(" ", start, end)
@@ -196,7 +204,13 @@ class RecursiveTextSplitter:
             if chunk:
                 chunks.append(chunk)
             
-            start = end - self.chunk_overlap
+            # Safety validation flag: ensure sliding window advances to prevent an infinite processing loop
+            next_start = end - self.chunk_overlap
+            if next_start <= start:
+                start = end  # Force progress forward if dynamic window overlap halts
+            else:
+                start = next_start
+                
             if start >= text_len or end == text_len:
                 break
         return chunks
@@ -233,3 +247,19 @@ def extract_pdf_chunks(file_path: str) -> List[Dict[str, Any]]:
     doc.close()
     logger.info(f"Extracted {len(all_chunks)} total chunks from {filename}.")
     return all_chunks
+
+# ==========================================
+# LOCAL TEST SANITY RUNNER
+# ==========================================
+if __name__ == "__main__":
+    print("\n--- Diagnostic Pipeline Status ---")
+    
+    # 1. Local Initialization Check
+    embedder = VectorModel.get_model()
+    chroma_db = ChromaDBManager()
+    
+    # 2. Vectorization Verification
+    test_phrase = "Confirming system matrix operation status parameters."
+    vector = embedder.encode(test_phrase).tolist()
+    print(f"Generated Embedding Size Vector Length: {len(vector)} values (Success)")
+    print("All subsystems are ready for localized operation.")

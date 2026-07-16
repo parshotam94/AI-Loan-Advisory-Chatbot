@@ -198,3 +198,78 @@
 2026-07-15 22:33:33,545 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-07-15 22:33:33,562 [INFO] API chat response generated via [RAG Tool] in 1.351s
 2026-07-15 22:33:33,563 [INFO] 127.0.0.1 - - [15/Jul/2026 22:33:33] "POST /api/chat HTTP/1.1" 200 -
+2026-07-16 13:33:25,623 [INFO] SQLite database tables initialized successfully.
+2026-07-16 13:33:27,552 [INFO] Loading local SentenceTransformer model: all-MiniLM-L6-v2...
+2026-07-16 13:33:27,555 [INFO] No device provided, using cpu
+2026-07-16 13:33:48,534 [INFO] Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-16 13:35:09,815 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:35:09,817 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-07-16 13:35:09,818 [WARNING] Retrying in 1s [Retry 1/5].
+2026-07-16 13:35:41,070 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:35:41,070 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-07-16 13:35:41,071 [WARNING] Retrying in 2s [Retry 2/5].
+2026-07-16 13:36:13,527 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:36:13,528 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-07-16 13:36:13,528 [WARNING] Retrying in 4s [Retry 3/5].
+2026-07-16 13:36:47,754 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:36:47,755 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-07-16 13:36:47,755 [WARNING] Retrying in 8s [Retry 4/5].
+2026-07-16 13:37:26,070 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:37:26,070 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-07-16 13:37:26,071 [WARNING] Retrying in 8s [Retry 5/5].
+2026-07-16 13:38:04,332 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:38:04,332 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-07-16 13:38:55,266 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:38:55,268 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json
+2026-07-16 13:38:55,268 [WARNING] Retrying in 1s [Retry 1/5].
+2026-07-16 13:39:26,524 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 504 Gateway Timeout"
+2026-07-16 13:39:26,525 [WARNING] HTTP Error 504 thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json
+2026-07-16 13:39:26,525 [WARNING] Retrying in 2s [Retry 2/5].
+2026-07-16 14:04:18,573 [INFO] SQLite database tables initialized successfully.
+2026-07-16 14:04:19,309 [INFO] Loading local SentenceTransformer model: all-MiniLM-L6-v2...
+2026-07-16 14:04:19,311 [INFO] No device provided, using cpu
+2026-07-16 14:04:19,651 [INFO] Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-16 14:04:20,067 [INFO] SentenceTransformer model loaded successfully.
+2026-07-16 14:04:20,087 [INFO] SQLite database tables initialized successfully.
+2026-07-16 14:04:20,122 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.18.221:5000
+2026-07-16 14:04:20,122 [INFO] [33mPress CTRL+C to quit[0m
+2026-07-16 14:06:08,194 [INFO] Incoming user transaction query: 'calculate emi for loan of $100000 at 5.5% for 2 years'
+2026-07-16 14:06:08,210 [INFO] API chat response generated via [EMI Calculator] in 0.001s
+2026-07-16 14:06:08,213 [INFO] 127.0.0.1 - - [16/Jul/2026 14:06:08] "POST /api/chat HTTP/1.1" 200 -
+2026-07-16 14:06:45,189 [INFO] 127.0.0.1 - - [16/Jul/2026 14:06:45] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:06:46,226 [INFO] 127.0.0.1 - - [16/Jul/2026 14:06:46] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:06:46,257 [INFO] 127.0.0.1 - - [16/Jul/2026 14:06:46] "GET /api/faqs HTTP/1.1" 200 -
+2026-07-16 14:08:25,208 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:25] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:08:25,611 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:25] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:08:25,657 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:25] "GET /api/faqs HTTP/1.1" 200 -
+2026-07-16 14:08:55,213 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:55] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:08:55,427 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:55] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:08:55,542 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:55] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:08:55,723 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:55] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:08:56,051 [INFO] FAQ successfully registered: 'What are the consequences i don't pay loan back'
+2026-07-16 14:08:56,052 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:56] "[35m[1mPOST /api/faq HTTP/1.1[0m" 201 -
+2026-07-16 14:08:56,146 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:56] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:08:56,340 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:56] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:08:56,402 [INFO] 127.0.0.1 - - [16/Jul/2026 14:08:56] "GET /api/faqs HTTP/1.1" 200 -
+2026-07-16 14:09:08,118 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:09:08,323 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:09:08,346 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "GET /api/faqs HTTP/1.1" 200 -
+2026-07-16 14:09:08,366 [INFO] Deleted FAQ entry ID: 7
+2026-07-16 14:09:08,366 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "DELETE /api/faq/7 HTTP/1.1" 200 -
+2026-07-16 14:09:08,486 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:09:08,685 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:09:08,705 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:08] "GET /api/faqs HTTP/1.1" 200 -
+2026-07-16 14:09:46,831 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:46] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:09:47,052 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:47] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:09:47,090 [INFO] 127.0.0.1 - - [16/Jul/2026 14:09:47] "GET /api/faqs HTTP/1.1" 200 -
+2026-07-16 14:10:02,882 [INFO] 127.0.0.1 - - [16/Jul/2026 14:10:02] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:10:03,096 [INFO] 127.0.0.1 - - [16/Jul/2026 14:10:03] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:10:03,410 [INFO] Deleted vector chunks associated with source: Artificial-Intelligence-1.pdf
+2026-07-16 14:10:03,419 [INFO] Admin manually deleted document and cleared index for: Artificial-Intelligence-1.pdf
+2026-07-16 14:10:03,420 [INFO] 127.0.0.1 - - [16/Jul/2026 14:10:03] "DELETE /api/document/Artificial-Intelligence-1.pdf HTTP/1.1" 200 -
+2026-07-16 14:10:03,508 [INFO] 127.0.0.1 - - [16/Jul/2026 14:10:03] "GET /api/analytics HTTP/1.1" 200 -
+2026-07-16 14:10:03,751 [INFO] 127.0.0.1 - - [16/Jul/2026 14:10:03] "GET /api/documents HTTP/1.1" 200 -
+2026-07-16 14:10:03,782 [INFO] 127.0.0.1 - - [16/Jul/2026 14:10:03] "GET /api/faqs HTTP/1.1" 200 -
