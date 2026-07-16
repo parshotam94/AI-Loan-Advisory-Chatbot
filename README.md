@@ -95,6 +95,16 @@ The project acts as an intelligent frontend orchestration layer built with **Str
 
 ### Installation & Setup
 
+**Set `.env`**
+```
+PORT=5000
+FLASK_ENV=development
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=llama-3.3-70b-versatile
+SQLITE_DB_PATH=data/loans.db
+CHROMA_DB_DIR=data/chroma_db
+```
+
 1. **Clone the Repository:**
 ```bash
 git clone <your-repository-url>
@@ -138,9 +148,12 @@ For development and local evaluation, use the following administrator credential
 * **Password:** `123`
 
 
-## Live Link Render
+## Live Link (Render)
+```
 `https://ai-loan-advisory-chatbot.onrender.com/`
+```
 (may not work as it is taking a lot of RAM and in free tier of Render it allow only 512 MB)
+
 
 ```
 

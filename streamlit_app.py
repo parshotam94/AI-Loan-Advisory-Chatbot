@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
+st.write("Application Started Successfully")
 # Backend REST API configuration
 # Render sets the PORT environment variable automatically for the web service
 import os
