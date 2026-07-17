@@ -401,5 +401,5 @@ elif view_mode=="Admin Dashboard & Analytics":
                     else:
                         st.info("No FAQs stored in system. Populate by executing `python train_faq.py` or use the registry manager.")
 else:
-    st.image("uploads/workflow.png", caption="Operational KPI & Analysis Visual Interface", width=1000)
-    st.image('uploads/wordflow_graph.png', caption="langgraph workflow")
+    st.image("uploads/workflow.png", caption="Operational KPI & Analysis Visual Interface", width=800)
+    st.image('uploads/workflow_graph.png', caption="langgraph workflow", 550)
