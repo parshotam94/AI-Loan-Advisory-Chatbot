@@ -66,14 +66,10 @@ The project acts as an intelligent frontend orchestration layer built with **Str
 ## 🔒 Built-in Guardrails
 
 To prevent backend service crashes, memory overflows, and mathematical boundary exceptions, the following strict guardrails are enforced:
-**Input Validation Shield:**
-Rejects empty, non-string, or purely whitespace queries instantly.
-**Buffer Overflow & DoS Protection:**
-Automatically truncates incoming queries at 1,000 characters to optimize chunk searching and prevent oversized token payloads to Groq.
-**Numeric Overflow Prevention:**
-Clamps loan amounts, interest rates, and loan durations to realistic boundaries (e.g., maximum limits on math exponents to avoid Python OverflowError during compounding interest calculations).
-**Boundary Range Vetting:** 
-Clamps human parameters like FICO Credit Scores strictly to standard ranges ($300 - 850$) and prevents division-by-zero errors in Debt-to-Income (DTI) equations if income returns zero.
+1. **Input Validation Shield**:  Rejects empty, non-string, or purely whitespace queries instantly.
+2. **Buffer Overflow & DoS Protection**: Automatically truncates incoming queries at 1,000 characters to optimize chunk searching and prevent oversized token payloads to Groq.
+3. **Numeric Overflow Prevention**: Clamps loan amounts, interest rates, and loan durations to realistic boundaries (e.g., maximum limits on math exponents to avoid Python OverflowError during compounding interest calculations).
+4. **Boundary Range Vetting**: Clamps human parameters like FICO Credit Scores strictly to standard ranges ($300 - 850$) and prevents division-by-zero errors in Debt-to-Income (DTI) equations if income returns zero.
 
 ## ✨ Implemented Features
 
