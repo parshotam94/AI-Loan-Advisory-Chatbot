@@ -132,6 +132,11 @@ class LoanAgent:
             if months <= 0 or rate < 0:
                 return None
 
+            # --- EMI Guardrails against math overflow or unrealistic values ---
+            if amount > 1_000_000_000 or rate > 100 or months > 600:  # Cap at $1B loan, 100% interest, 50 years
+                logger.warning(f"EMI parameters exceed reasonable system thresholds: amt={amount}, rate={rate}, months={months}")
+                return None
+
             # Calculate EMI
             monthly_rate = (rate / 100) / 12
             if monthly_rate == 0:
@@ -216,6 +221,12 @@ class LoanAgent:
             val = float(loan_req_match.group(1).replace(",", ""))
             is_k = loan_req_match.group(2) is not None
             loan_req = val * 1000 if is_k else val
+
+        # --- Eligibility Guardrails against negative/overflow inputs ---
+        credit_score = max(300, min(850, credit_score))  # FICO scores fall strictly between 300 and 850
+        age = max(0, min(120, age))
+        income = max(1.0, min(1_000_000_000.0, income))  # Clamp income bounds to avoid zero-division and overflows
+        loan_req = max(0.0, min(1_000_000_000.0, loan_req))
 
         # Evaluate logic metrics
         reasons = []
@@ -462,6 +473,22 @@ class LoanAgent:
         """Runs routing logic sequentially across all engines."""
         logger.info(f"Incoming user transaction query: '{query}'")
         start_time = time.time()
+
+        # --- Orchestrator Input Guardrails ---
+        if not query or not isinstance(query, str) or not query.strip():
+            logger.warning("Empty or invalid query type rejected by orchestrator guardrails.")
+            return {
+                "answer": "The query submitted was empty or invalid. Please try asking a specific loan-related question.",
+                "confidence": 0.0,
+                "tool": "Validation Guardrail",
+                "sources": "System Guardrail",
+                "latency": 0.0
+            }
+
+        # Truncate queries exceeding reasonable length limits (e.g., to prevent prompt-injection bulk or excessive load)
+        if len(query) > 1000:
+            logger.info(f"Query length of {len(query)} exceeds maximum. Truncating to 1000 characters.")
+            query = query[:1000].strip()
 
         # Step 1. Match programmatically against EMI formula patterns
         emi_match = self.try_parse_emi(query)

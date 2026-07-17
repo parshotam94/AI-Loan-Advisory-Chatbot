@@ -1,0 +1,14 @@
+flask
+streamlit
+groq
+chromadb
+langchain-core
+sentence-transformers
+pypdf
+pandas
+plotly
+python-dotenv
+langgraph
+requests
+numpy
+pygraphviz

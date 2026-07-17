@@ -90,7 +90,7 @@ st.sidebar.title("💼 AI Loan Advisor")
 st.sidebar.markdown("---")
 view_mode = st.sidebar.radio(
     "Navigation Portal",
-    ["User Chat Assistant", "Admin Dashboard & Analytics"]
+    ["User Chat Assistant", "Admin Dashboard & Analytics", "Workflow"]
 )
 st.sidebar.markdown("---")
 st.sidebar.info(
@@ -182,7 +182,7 @@ if view_mode == "User Chat Assistant":
 # ----------------------------------------------------------------------
 # PORTAL 2: ADMIN DASHBOARD & ANALYTICS (GATED BY DIALOG AUTH)
 # ----------------------------------------------------------------------
-else:
+elif view_mode=="Admin Dashboard & Analytics":
     # 1. Gate: Verify authentication state
     if not st.session_state.admin_authenticated:
         # Trigger pop-up automatically
@@ -400,3 +400,5 @@ else:
                                 st.markdown("---")
                     else:
                         st.info("No FAQs stored in system. Populate by executing `python train_faq.py` or use the registry manager.")
+else:
+    st.image("uploads/workflow.png", caption="Operational KPI & Analysis Visual Interface", width=1000)      
