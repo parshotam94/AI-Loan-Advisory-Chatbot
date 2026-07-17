@@ -1,5 +1,3 @@
-
-```markdown
 # 💼 AI Loan Advisory Agent & Dashboard
 
 A production-grade, dual-portal web application designed for automated financial customer service and credit operations. The system serves two primary stakeholder personas: general users seeking loan intelligence through an intelligent chat agent, and administrators managing the underlying knowledge base, document corpus, and operational performance metrics.
