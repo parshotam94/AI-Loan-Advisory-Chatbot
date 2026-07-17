@@ -1,5 +1,9 @@
 # 💼 AI Loan Advisory Agent & Dashboard
 
+## 🎥 Demo Video
+Watch the demo here:
+https://drive.google.com/file/d/1CKaYEnSxbaAYSfmxKSJaHPdZDXOTId_2/view?usp=sharing
+
 A production-grade, dual-portal web application designed for automated financial customer service and credit operations. The system serves two primary stakeholder personas: general users seeking loan intelligence through an intelligent chat agent, and administrators managing the underlying knowledge base, document corpus, and operational performance metrics.
 
 The project acts as an intelligent frontend orchestration layer built with **Streamlit** that communicates with a decoupled **Flask REST API backend** using **Semantic Routing**, **Dense FAQ Retrieval**, **Rule-Based Automation**, and **Retrieval-Augmented Generation (RAG)**.
